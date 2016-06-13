@@ -1,8 +1,8 @@
 'use strict';
 
 describe('Service: AltFiltro', function () {
-
     var AltFiltro;
+
     beforeEach(module('alt.filtro-generico'));
 
     beforeEach(inject(function($injector) {

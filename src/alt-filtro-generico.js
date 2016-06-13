@@ -4,83 +4,83 @@
   ng.module('alt.filtro-generico', [])
     .factory('AltFiltro', [function () {
       var AltFiltro = function(prop, valor) {
-        this.propriedade = [];
-        this.valor = [];
+          this.propriedade = [];
+          this.valor = [];
 
-        if (ng.isDefined(prop)) {
-          this.propriedade.push(prop);
-        }
+          if (angular.isDefined(prop)) {
+              this.propriedade.push(prop);
+          }
 
-        if (ng.isDefined(valor)) {
-          this.valor.push(valor);
-        }
+          if (angular.isDefined(valor)) {
+              this.valor.push(valor);
+          }
       };
 
       AltFiltro.prototype.adiciona = function(propriedade, valor) {
-        if (!propriedade) {
-          throw new Error('Propriedade deve ser informada para ser adicionada as propriedades.');
-        }
+          if (angular.isUndefined(propriedade)) {
+              throw new Error('Propriedade deve ser informada para ser adicionada as propriedades.');
+          }
 
-        if (!valor) {
-          throw new Error('Valor deve ser informado para ser adicionado aos valores.');
-        }
+          if (angular.isUndefined(valor)) {
+              throw new Error('Valor deve ser informado para ser adicionado aos valores.');
+          }
 
-        this.propriedade.push(propriedade);
-        this.valor.push(valor);
+          this.propriedade.push(propriedade);
+          this.valor.push(valor);
       };
 
       AltFiltro.prototype.remove = function(propriedade) {
-        var _this = this;
+          var _this = this;
 
-        ng.forEach(_this.propriedade, function(p, indice) {
-          if (p === propriedade) {
-            _this.propriedade.splice(indice, 1);
-            _this.valor.splice(indice, 1);
-          }
-        });
+          angular.forEach(_this.propriedade, function(p, indice) {
+              if (p === propriedade) {
+                  _this.propriedade.splice(indice, 1);
+                  _this.valor.splice(indice, 1);
+              }
+          });
       };
 
       AltFiltro.prototype.removeTodos = function() {
-        this.propriedade.length = 0;
-        this.valor.length = 0;
+          this.propriedade.length = 0;
+          this.valor.length = 0;
       };
 
       AltFiltro.prototype.estaPreenchido = function() {
-        return !!this.propriedade.length && !!this.valor.length;
+          return !!this.propriedade.length && !!this.valor.length;
       };
 
       AltFiltro.prototype.formata = function() {
-        if (!this.estaPreenchido())
-        throw new Error('AltFiltro não está preenchido para ser formatado.');
+          if (!this.estaPreenchido())
+              throw new Error('AltFiltro não está preenchido para ser formatado.');
 
-        return {propriedade: this.formataPropriedade(), valor: this.formataValor()};
+          return {propriedade: this.formataPropriedade(), valor: this.formataValor()};
       };
 
       AltFiltro.prototype.formataPropriedade = function() {
-        if (!this.estaPreenchido())
-        throw new Error('Propriedade não está preenchida para ser formatado.');
+          if (!this.estaPreenchido())
+              throw new Error('Propriedade não está preenchida para ser formatado.');
 
-        return this.propriedade.join();
+          return this.propriedade.join();
       };
 
       AltFiltro.prototype.formataValor = function() {
-        if (!this.estaPreenchido())
-        throw new Error('Valor não está preenchido para ser formatado.');
+          if (!this.estaPreenchido())
+              throw new Error('Valor não está preenchido para ser formatado.');
 
-        return this.valor.join();
+          return this.valor.join();
       };
 
       AltFiltro.prototype.seta = function(propriedade, valor) {
-        if (!propriedade) {
-          throw new Error('Propriedade deve ser informada para setar a propriedade.');
-        }
+          if (angular.isUndefined(propriedade)) {
+              throw new Error('Propriedade deve ser informada para setar a propriedade.');
+          }
 
-        if (!valor) {
-          throw new Error('Valor deve ser informado para setar o valor.');
-        }
+          if (angular.isUndefined(valor)) {
+              throw new Error('Valor deve ser informado para setar o valor.');
+          }
 
-        this.remove(propriedade);
-        this.adiciona(propriedade, valor);
+          this.remove(propriedade);
+          this.adiciona(propriedade, valor);
       };
 
       return AltFiltro;
