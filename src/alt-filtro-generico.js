@@ -83,14 +83,18 @@
           this.adiciona(propriedade, valor);
       };
 
-      AltFiltro.prototype.gerarUrl = function(prefix = '/') {
-        let url = '?';
+      AltFiltro.prototype.gerarUrl = function(prefix) {
+        var url = '';
 
         for (var indexFiltro = 0; indexFiltro < this.propriedade.length; indexFiltro++) {
-          url += `${this.propriedade[indexFiltro]}=${this.valor[indexFiltro]}&`;
+          url += this.propriedade[indexFiltro] + '=' + this.valor[indexFiltro] + '&';
         }
 
         const finalUrl = url.slice(0, -1); // remove o último '&'
+
+        if (!prefix) {
+            return finalUrl;
+        }
 
         return prefix + finalUrl;
       };
