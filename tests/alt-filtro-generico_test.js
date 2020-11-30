@@ -280,7 +280,7 @@ describe('Service: AltFiltro', function () {
         })
     });
 
-    fdescribe('gerarUrl', function() {
+    describe('gerarUrl', function() {
       it('retornando a url esperada', function() {
         var _f = new AltFiltro();
 
