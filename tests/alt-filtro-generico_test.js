@@ -278,5 +278,29 @@ describe('Service: AltFiltro', function () {
             expect(_f.propriedade[1]).toBe('b')
             expect(_f.valor[1]).toBe(2);
         })
+    });
+
+    fdescribe('gerarUrl', function() {
+      it('retornando a url esperada', function() {
+        var _f = new AltFiltro();
+
+        _f.adiciona('a', 1);
+        _f.adiciona('b', 2);
+        _f.adiciona('c', 3);
+
+        var _r = _f.gerarUrl();
+
+        expect(_r).toEqual("/?a=1&b=2&c=3");
+      });
+
+      it('quando não tem parâmetro', function() {
+        var _f = new AltFiltro();
+
+        var _r = _f.gerarUrl();
+
+        expect(_r).toEqual("/");
+
+      })
     })
+
 });
