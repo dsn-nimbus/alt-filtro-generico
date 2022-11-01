@@ -7,7 +7,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.8.11",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.5.2",
     "gulp-coveralls": "^0.1.4",
     "gulp-cssmin": "^0.1.7",
@@ -16,7 +16,7 @@
     "jasmine-core": "latest",
     "karma": "latest",
     "karma-chrome-launcher": "latest",
-    "karma-coverage": "^0.3.1",
+    "karma-coverage": "^2.2.0",
     "karma-firefox-launcher": "^0.1.4",
     "karma-ie-launcher": "^0.1.5",
     "karma-jasmine": "latest",
